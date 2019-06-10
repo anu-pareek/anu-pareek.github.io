@@ -3,14 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>html5 tute</title>
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <![endif]-->
 <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
+
+
+
 </head>
 <body>
+    <div id="result"></div>
+  <figure>
+    Geolocation
+    <button onclick="getLocation()">Get My location</button>
+    <p id="loc"></p>
+    <script>
+      var x = document.getElementById("loc");
+     function getLocation(){
+    
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(printLocation);
+    }
+      }
+      function printLocation(loc){
+        x.innerHTML = "Lat " + loc.coords.latitude + " Long "+ loc.coords.longitude;
+      }
+    
+    </script>
+  </figure>
 
         Current time is <time>10:00</time>
         <p>I have a date on <time datetime="2008-02-14 20:00">Valentines day</time>.</p>
@@ -102,7 +125,7 @@
 <figure>
         <figcaption >Nahi re Nahi</figcaption>
     <audio controls autoplay>
-     <source src="./nahi_re.mp3">
+     <source src="./Nahi_re.mp3">
     </audio>
     </figure>
 
@@ -135,5 +158,18 @@ ctx.fillRect(0, 0, 80, 80);
   <!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script> -->
+
+  <script>
+    // Check browser support
+    if (typeof(Storage) !== "undefined") {
+      // Store
+      localStorage.setItem("lastname", "Smith");
+      // Retrieve
+      document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+    } else {
+      document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+    </script>
+
 </body>
 </html>
