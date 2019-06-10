@@ -135,7 +135,10 @@ function startWorker(){
   }
 }
 
-function stopWorker(){}
+function stopWorker(){
+  w.terminate();
+  w=undefined;
+}
 </script>
 
   <footer class="page-footer teal">
